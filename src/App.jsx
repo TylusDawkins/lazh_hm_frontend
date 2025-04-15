@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import styles from './App.module.css';
+import { Router, Route } from "@solidjs/router";
+import Layout from "@components/Layout";
+import Home from "@pages/Home";
+import Todos from "@pages/Todos";
 
-function App() {
+export default function App() {
+
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
+    <Router root={Layout}>
+      <Route path="/" component={Home} />
+      <Route path='/todos'component={Todos}/>
+    </Router>
   );
 }
-
-export default App;
