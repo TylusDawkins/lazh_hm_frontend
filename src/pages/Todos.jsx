@@ -11,13 +11,10 @@ export default function Todos() {
     });
 
     createEffect(() => {
-        console.log(todos);
-        console.log(todoForm.name);
-        console.log(todoForm);
+
     });
 
     const handleChange = (e) => {
-        console.log(e.target.value); // ✅ correct way to get input value
         setTodoForm(e.target.name, e.target.value); // ✅ updates the correct field
     };
 
