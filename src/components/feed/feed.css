@@ -1,0 +1,60 @@
+/* FONT & BASE COLORS */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f3ecd9;
+    background-image: url('/assets/parchment_texture.jpg'); /* Use a tileable parchment texture */
+    background-size: cover;
+    color: #2d1e10;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* CHAT LOG CONTAINER */
+  .transcript-log {
+    width: 420px;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background-color: rgba(255, 248, 230, 0.95);
+    background-image: url('./assets/parchment_texture.png');
+    background-size: 400px;
+    border-left: 3px solid #a98e6f;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .transcript-line {
+    background-color: #fefaf4;
+    background-image: url('./assets/parchment_texture.png');
+    background-size: 200px;
+    border-radius: 10px;
+    border: 1px solid #c4b494;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  /* TIMESTAMP STYLE */
+  .timestamp {
+    color: #867c6a;
+    font-size: 0.85em;
+    margin-right: 0.5em;
+    display: inline-block;
+  }
+  
+  /* NAME / SPEAKER STYLE */
+  .transcript-line strong {
+    font-weight: bold;
+    color: #3b2f20;
+    margin-right: 0.5em;
+  }
+  
+  /* FADE-IN ANIMATION */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .transcript-line {
+    animation: fadeIn 0.4s ease-out;
+  }
+  

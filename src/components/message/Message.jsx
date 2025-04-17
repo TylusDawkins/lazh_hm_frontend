@@ -2,6 +2,8 @@ import { createSignal, onCleanup, onMount } from "solid-js";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
+import './message.css'
+
 dayjs.extend(relativeTime);
 
 export default function TranscriptLine(props) {
@@ -20,7 +22,7 @@ export default function TranscriptLine(props) {
 
   return (
     <div class="transcript-line">
-      <span class="timestamp">{relative()}</span>
+      <span class="timestamp">{relative()} </span>
       <strong>{line.player_id}:</strong> {line.text}
     </div>
   );
