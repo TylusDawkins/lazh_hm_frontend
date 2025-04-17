@@ -8,6 +8,7 @@ export default function Recorder() {
 
   let mediaRecorder;
   let stream;
+  let recordingStartTime
   const MIN_BLOB_SIZE = 8000; // Skip blobs smaller than ~8 KB
   const RECORDING_DURATION = 2000; // 5 seconds
 
@@ -43,6 +44,7 @@ export default function Recorder() {
       const formData = new FormData();
       formData.append("file", blob, `chunk-${Date.now()}.wav`);
       formData.append("player_id", playerId);
+      formData.append("recording_start_time", recordingStartTime);
       formData.append("timestamp", Date.now());
       const res = await fetch("http://localhost:8000/upload-audio/", {
         method: "POST",
@@ -58,11 +60,7 @@ export default function Recorder() {
   let lastChunkSentTime = performance.now();
 
   function recordChunk() {
-    // const audioContext = new AudioContext();
-    // const mediaStreamAudioSourceNode = new MediaStreamAudioSourceNode(audioContext, { mediaStream: stream });
-    // const mediaStreamAudioDestinationNode = new MediaStreamAudioDestinationNode(audioContext);
-
-    // mediaStreamAudioSourceNode.connect(mediaStreamAudioDestinationNode);
+    recordingStartTime = performance.now();
 
     mediaRecorder.ondataavailable = (event) => {
       const now = Date.now();
